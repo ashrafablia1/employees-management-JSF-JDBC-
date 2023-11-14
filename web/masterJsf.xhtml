@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>All Users</title>
+        <h:outputStylesheet library = "css" name = "style.css"  /> 
+
+    </h:head>
+    <h:body>
+
+        <div class="main-container">
+
+            <h:form>
+                <h:outputLabel value="Name" /><br/>
+                <h:inputText value="#{userBacking.searchBean.name}"></h:inputText><br/>
+                <h:outputLabel value="Address" /><br/>
+                <h:inputText value="#{userBacking.searchBean.address}"></h:inputText><br/>
+                <h:outputLabel value="Position" /><br/>
+                <h:inputText value="#{userBacking.searchBean.postion}"></h:inputText><br/>
+
+                <h:commandButton value="Search" action="#{userBacking.search()}"></h:commandButton>
+                <h:commandButton value="Clear" action="#{userBacking.clearSearch()}" />
+
+            </h:form>  
+
+
+
+
+            <h:form>  
+                <h:commandButton value="Add new Employee" action="${userBacking.goToOpertion()}">
+                    <f:setPropertyActionListener target="#{userBacking.action}" value="add" />
+                </h:commandButton>  
+            </h:form>  
+
+            <h:dataTable value = "#{userBacking.usersBeans}" var = "user"
+                         styleClass = "usersTable"
+                         headerClass = "usersTableHeader"
+                         rowClasses = "usersTableOddRow,usersTableEvenRow">
+
+
+
+                <h:column><f:facet name = "header">Name</f:facet>
+                        #{user.name}  
+                </h:column>
+
+                <h:column><f:facet name = "header">Age</f:facet>
+                        #{user.age}
+                </h:column>
+
+                <h:column><f:facet name = "header">Position</f:facet>
+                        #{user.postion}
+                </h:column>
+
+                <h:column><f:facet name = "header">Address</f:facet>
+                        #{user.address}
+                </h:column> 
+
+                <h:column><f:facet name = "header">Username</f:facet>
+                        #{user.username}
+                </h:column>
+
+                <h:column><f:facet name = "header">Clicks</f:facet>
+                    <h:form>  
+                        <h:commandButton value="Update" action="#{userBacking.goToOpertion()}">
+                            <f:setPropertyActionListener target="#{userBacking.operationBean}" value="#{user}" />
+                            <f:setPropertyActionListener target="#{userBacking.action}" value="update" />
+                        </h:commandButton>
+
+                        <h:commandButton value="View" action="#{userBacking.goToOpertion()}">
+                            <f:setPropertyActionListener target="#{userBacking.operationBean}" value="#{user}" />
+                            <f:setPropertyActionListener target="#{userBacking.action}" value="view" />
+                        </h:commandButton>    
+
+                        <h:commandButton value="Delete" action="#{userBacking.delete()}">
+                            <f:setPropertyActionListener target="#{userBacking.operationBean.id}" value="#{user.id}" />
+                        </h:commandButton>
+
+                    </h:form>
+                </h:column>    
+            </h:dataTable>
+        </div>
+    </h:body>
+</html>
+

@@ -1,0 +1,51 @@
+/* Style the body to provide background and center content */
+body {
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the form container */
+h:form {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    max-width: 400px; /* Adjust the size as needed */
+    text-align: center;
+    margin: 0 auto; /* Center the form horizontally */
+}
+
+/* Style for labels */
+h:outputLabel {
+    display: block; /* Display labels on separate lines */
+    text-align: left; /* Left-align the labels */
+}
+
+/* Style for form elements */
+h:inputText, h:selectOneMenu {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px; /* Increase the font size */
+}
+
+h:commandButton {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px; /* Increase the padding for larger buttons */
+    font-size: 18px; /* Increase the font size */
+    cursor: pointer;
+}
+
+h:commandButton:hover {
+    background-color: #0056b3;
+}

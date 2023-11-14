@@ -1,0 +1,53 @@
+/* Center all elements vertically and horizontally */
+html, body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+/* Style for the main container */
+.main-container {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 80px; 
+    padding: 20px;
+    width: 700px;
+    text-align: center;
+}
+
+/* Style for buttons */
+.btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Style for the data table */
+.usersTable {
+    width: 100%;
+}
+
+.usersTableHeader {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.usersTableOddRow {
+    background-color: #f2f2f2;
+}
+
+.usersTableEvenRow {
+    background-color: #e6e6e6;
+}

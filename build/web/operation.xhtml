@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet library = "css" name = "operation.css"  /> 
+
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGroup rendered="#{userBacking.action == 'update' || userBacking.action == 'view'}" >
+                <h:outputLabel value="Id" /><br/>
+                <h:inputText value="#{userBacking.operationBean.id}" disabled="true" ></h:inputText><br/>
+            </h:panelGroup>
+
+            <h:outputLabel value="Name" /><br/>
+            <h:inputText value="#{userBacking.operationBean.name}" disabled="#{userBacking.action == 'view'}"></h:inputText><br/>
+            <h:outputLabel value="Age" /><br/>
+            <h:inputText value="#{userBacking.operationBean.age}" disabled="#{userBacking.action == 'view'}"></h:inputText><br/>
+            <h:outputLabel value="Username" /><br/>
+            <h:inputText value="#{userBacking.operationBean.username}" disabled="#{userBacking.action == 'view'}"></h:inputText><br/>
+            <h:outputLabel value="Address" /><br/>
+            <h:inputText value="#{userBacking.operationBean.address}" disabled="#{userBacking.action == 'view'}"></h:inputText><br/>
+            <h:outputLabel value="Position" /><br/>
+            <h:inputText value="#{userBacking.operationBean.postion}" disabled="#{userBacking.action == 'view'}"></h:inputText><br/>
+            <h:outputLabel value="Skill" /><br/>
+            <h:inputText value="#{userBacking.operationBean.skill}" disabled="#{userBacking.action == 'view'}"></h:inputText><br/>
+            <h:outputLabel value="Password" /><br/>
+            <h:inputText value="#{userBacking.operationBean.password}" disabled="#{userBacking.action == 'view'}" ></h:inputText><br/>
+
+            <h:outputLabel value="Role" /><br/>
+            <h:selectOneMenu value ="#{userBacking.operationBean.role}" disabled="#{userBacking.action == 'view'}"> 
+                <f:selectItem  itemLabel = "#{userBacking.operationBean.role.name()}" itemDisabled="true" /> 
+                <f:selectItem itemValue = "ADMIN" itemLabel = "ADMIN" /> 
+                <f:selectItem itemValue = "CLIENT" itemLabel = "CLIENT" /> 
+            </h:selectOneMenu><br/>
+
+            <h:commandButton value="Save" action="#{userBacking.addrOrUpdate()}" disabled="#{userBacking.action == 'view'}"/>
+            <h:commandButton value="clear" action="#{userBacking.clear}" disabled="#{userBacking.action == 'view' || userBacking.action ==  'add'}"/>
+            <h:commandButton value="Cancel" action="#{userBacking.goToHomePge()}" />
+
+
+        </h:form>
+    </h:body>
+</html>
+
